@@ -3,7 +3,7 @@
 # License: GNU
 # URL: https://github.com/INTITY/nReport
 
-module nRreport
+module NRreport
 	
 	PUBLIC_LICENSE = 'https://github.com/INTITY/nReport/blob/master/LICENSE'
 
@@ -12,7 +12,7 @@ module nRreport
 	ext_lic = Sketchup::Licensing.get_extension_license(ext_id)
 	if ext_lic.licensed?
 		# Our extension is licensed, add our UI elements
-		menu = UI.menu('Extensions').add_submenu('Test')
+		menu = UI.menu('Extensions').add_submenu('nReport')
 		menu.add_item('Run Plugin') { UI.messagebox('Run Plugin') }
 		menu.add_item('Licensed Extension') { UI.openURL( PUBLIC_LICENSE ) }
 	end

@@ -8,7 +8,7 @@ require 'extensions.rb'
 
 module Sketchup
 	module Extensions
-		module nReport
+		module NReport
 
 			# Extension Info
 			PLUGIN_ID       = 'nReport'.freeze
