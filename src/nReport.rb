@@ -23,13 +23,13 @@ module Sketchup
 
 			# Extension loader
 			unless file_loaded?(__FILE__)
-			  loader = File.join( PATH, 'loader.rb' )
-			  ex = SketchupExtension.new(PLUGIN_NAME, loader)
-			  ex.description = 'Export Reports extension.'
-			  ex.version     = PLUGIN_VERSION
-			  ex.copyright   = 'INTTTY 2015'
-			  ex.creator     = 'INTITY'
-			  Sketchup.register_extension(ex, true)
+				loader = File.join( PATH, 'loader.rb' )
+				ex = SketchupExtension.new(PLUGIN_NAME, loader)
+				ex.description = 'Export Reports extension.'
+				ex.version     = PLUGIN_VERSION
+				ex.copyright   = 'INTITY 2015'
+				ex.creator     = 'INTITY'
+				Sketchup.register_extension(ex, true)
 			end
 		end
 	end
