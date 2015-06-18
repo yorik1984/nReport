@@ -4,8 +4,9 @@
 # URL: https://github.com/INTITY/nReport
 
 module Sketchup::Extensions::NReport
+  
   class Core
-
+    
     def generate_report
       UI.messagebox('Generate Report')
     end

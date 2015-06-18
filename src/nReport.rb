@@ -9,18 +9,18 @@ require 'extensions.rb'
 module Sketchup
 	module Extensions
 		module NReport
-
+		
 			# Extension Info
 			PLUGIN_ID       = 'nReport'.freeze
 			PLUGIN_NAME     = 'nReport'.freeze
 			PLUGIN_VERSION  = '1.0.0'.freeze
-
+			
 			# Resource paths
 			FILENAMESPACE = File.basename(__FILE__, '.*')
 			PATH_ROOT     = File.dirname(__FILE__).freeze
 			PATH          = File.join(PATH_ROOT, FILENAMESPACE).freeze
 			PATH_ICONS    = File.join(PATH, 'icons').freeze
-
+			
 			# Extension loader
 			unless file_loaded?(__FILE__)
 				loader = File.join( PATH, 'loader.rb' )
