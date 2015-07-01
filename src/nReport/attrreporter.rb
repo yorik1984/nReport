@@ -86,7 +86,7 @@ module Sketchup::Extensions::NReport
           @cell_mid   = ""
           @cell_end   = ","
   
-        else # default to html
+        when 'html' # default to html
         
           @doc_start = "<html><head><meta http-equiv=\"Content-Type\" " +
           "content=\"text/html; charset=utf-8\"></head>\n<style>" +
@@ -114,6 +114,21 @@ module Sketchup::Extensions::NReport
           @cell_start = "    <td>"
           @cell_mid   = "</td>\n    <td>"
           @cell_end   = "</td>\n"
+          
+        else 'xml'
+          
+          @doc_start = '<?xml version="1.0" encoding="UTF-8"?>' +
+                       '<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/po.xsd" xmlns="http://tempuri.org/po.xsd" elementFormDefault="qualified">' +
+                        
+                        '<table>'
+          @doc_end    = '</table>' +
+                        '</xs:schema>'
+          @row_start  = '   <tr>'
+          @row_end    = '   </tr>'
+          @cell_start = '     <td>'
+          @cell_mid   = '     </td>' +
+                        '<td>'
+          @cell_end   = '</td>'
       end    
     end #set_up
         
