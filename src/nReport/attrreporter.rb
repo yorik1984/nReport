@@ -74,15 +74,17 @@ module Sketchup::Extensions::NReport
       # road, the reporter uses a simple templating system that allows you to
       # define strings that start and end the report, the rows, and the cells.
       # you can easily add more formats here 
-      if @filetype == "csv"
+      case @filetype
+        
+        when 'csv'
       
-        @doc_start  = ""
-        @doc_end    = ""
-        @row_start  = ""
-        @row_end    = "\n"
-        @cell_start = ""
-        @cell_mid   = ","
-        @cell_end   = ","
+          @doc_start  = ""
+          @doc_end    = ""
+          @row_start  = ""
+          @row_end    = "\n"
+          @cell_start = ""
+          @cell_mid   = ""
+          @cell_end   = ","
   
         else # default to html
         
@@ -112,9 +114,8 @@ module Sketchup::Extensions::NReport
           @cell_start = "    <td>"
           @cell_mid   = "</td>\n    <td>"
           @cell_end   = "</td>\n"
-  
-      end
-    end
+      end    
+    end #set_up
         
     #these are some functions useful for formatting the generated output 
     # Processes anything into a float.
@@ -201,14 +202,13 @@ module Sketchup::Extensions::NReport
     def get_attribute_value(entity, name)
       name = name.downcase
   
-      if entity.typename == 'ComponentInstance'
-        value = entity.get_attribute @dictionary_name, name
-        if value == nil
+      if (entity.typename == 'ComponentInstance')
+        value = entity.get_attribute(@dictionary_name, name)
+        if (value == nil)
           value = entity.definition.get_attribute(@dictionary_name, name)
         end
         return value
-      elsif entity.typename == 'Group' || entity.typename == "Model" || 
-        entity.typename == 'ComponentDefinition'
+      elsif (entity.typename == 'Group' || entity.typename == "Model" || entity.typename == 'ComponentDefinition')
         return entity.get_attribute(@dictionary_name, name)
       else
         return nil
@@ -235,7 +235,7 @@ module Sketchup::Extensions::NReport
         n +=1
         type = item.typename
         case type
-          when "Group"
+          when 'Group'
             # Add all the entities that are in that group into the group_list array.
             item.entities.each do |entity|  
               @group_list.push entity
@@ -244,7 +244,7 @@ module Sketchup::Extensions::NReport
             create_report_string(item, n)
             @group_list.delete(item)
           
-          when "ComponentInstance"
+          when 'ComponentInstance'
             # You can call .entities on Component Definition, but not on 
             # Component Instance. You need to figure out which 
             # ComponentDefinition the instance belongs to.
@@ -360,7 +360,7 @@ module Sketchup::Extensions::NReport
   
           # Add the attributes to our report results.
           for attribute_name in @report_attribute_list
-            value = get_attribute_value(entity,attribute_name)
+            value = get_attribute_value(entity, attribute_name)
             if value.kind_of? Float
               if value.to_s.include?('e-')
                 value = 0.0
@@ -417,7 +417,7 @@ module Sketchup::Extensions::NReport
         # can can properly append "empty" cells to any records that don't have
         # all of the attributes.
         if @report_data.last.nil?
-          UI.messagebox "No Components or Groups in the selection"
+          UI.messagebox('No Components or Groups in the selection')
           return -1
         else
           longest_row_length = @report_data.last.length
@@ -442,7 +442,7 @@ module Sketchup::Extensions::NReport
           for i in 0..(longest_row_length-1)
             value = cell_data[i]
             @report_string += @cell_start
-            if @filetype == "csv"
+            if (@filetype == "csv")
               value = value.to_s
               value = value.gsub(/\"/,'""')
               value = '"' + value + '"'
@@ -468,7 +468,7 @@ module Sketchup::Extensions::NReport
     def generate_attributes_report(filename, entities_list)
     
       # Start an operation so everything performs faster.
-      Sketchup.active_model.start_operation 'Generate Report', true
+      Sketchup.active_model.start_operation('Generate Report', true)
     
       # initialization of all the class variables used
       set_up(filename)

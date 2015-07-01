@@ -22,6 +22,8 @@ module Sketchup::Extensions::NReport
 			attr_reporter.generate_attributes_report('report.html', entities_list) }
 		plugins_menu.add_item('Generate Report as CSV') { 
 			attr_reporter.generate_attributes_report('report.csv', entities_list) }
+		plugins_menu.add_item('Generate Report as XML') { 
+			attr_reporter.generate_attributes_report('report.xml', entities_list) }
 		plugins_menu.add_separator
 		plugins_menu.add_item('Licensed Extension') { UI.openURL( PUBLIC_LICENSE ) }
 		
@@ -32,6 +34,8 @@ module Sketchup::Extensions::NReport
 				attr_reporter.generate_attributes_report("report.html", Sketchup.active_model.selection) }
 			submenu.add_item('Generate Report as CSV') { 
 				attr_reporter.generate_attributes_report("report.csv", Sketchup.active_model.selection) }
+			submenu.add_item('Generate Report as XML') { 
+				attr_reporter.generate_attributes_report("report.xml", Sketchup.active_model.selection) }
 		end
 	end
  end
