@@ -23,7 +23,7 @@ module Sketchup::Extensions
 	unless file_loaded?(__FILE__)
 		loader = File.join(PATH, 'loader.rb')
 		ex = SketchupExtension.new(PLUGIN_NAME, loader)
-		ex.description = 'Generate Reports extension.'
+		ex.description = 'Generate Reports.'
 		ex.version     = PLUGIN_VERSION
 		ex.copyright   = 'INTITY 2015'
 		ex.creator     = 'INTITY'

@@ -77,58 +77,63 @@ module Sketchup::Extensions::NReport
       case @filetype
         
         when 'csv'
-      
+          
           @doc_start  = ""
           @doc_end    = ""
           @row_start  = ""
           @row_end    = "\n"
           @cell_start = ""
-          @cell_mid   = ""
-          @cell_end   = ","
+          @cell_mid   = ";"
+          @cell_end   = ";"
   
-        when 'html' # default to html
+        when 'html'
         
-          @doc_start = "<html><head><meta http-equiv=\"Content-Type\" " +
-          "content=\"text/html; charset=utf-8\"></head>\n<style>" +
-          "table {\n" +
-          "  padding: 0px;\n" +
-          "  margin: 0px;\n" +
-          "  empty-cells: show;\n" +
-          "  border-right: 1px solid silver;\n" +
-          "  border-bottom: 1px solid silver;\n" +
-          "  border-collapse: collapse;\n" +
-          "}\n" +
-          "td {\n" +
-          "  padding: 4px;\n" +
-          "  margin: 0px;\n" +
-          "  border-left: 1px solid silver;\n" +
-          "  border-top: 1px solid silver;\n" +
-          "  font-family: sans-serif;\n" +
-          "  font-size: 9pt;\n" +
-          "  vertical-align: top;\n" +
-          "}\n</style>\n" +
-          "<table border=1>"
-          @doc_end    = "</table></html>"
-          @row_start  = "   <tr>\n"
-          @row_end    = "   </tr>\n"
+          @doc_start =  "<html>" +
+                        "<head>" +
+                          "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">" +
+                        "</head>" +
+                        "<style>" +
+                        "table {" +
+                        "  padding: 0px;" +
+                        "  margin: 0px;" +
+                        "  empty-cells: show;" +
+                        "  border-right: 1px solid silver;" +
+                        "  border-bottom: 1px solid silver;" +
+                        "  border-collapse: collapse;" +
+                        "}" +
+                        "td {" +
+                        "  padding: 4px;" +
+                        "  margin: 0px;" +
+                        "  border-left: 1px solid silver;" +
+                        "  border-top: 1px solid silver;" +
+                        "  font-family: sans-serif;" +
+                        "  font-size: 9pt;" +
+                        "  vertical-align: top;" +
+                        "}" +
+                        "</style>" +
+                        "<table border=1>"
+          @doc_end    = "</table>" +
+                        "</html>"
+          @row_start  = "   <tr>"
+          @row_end    = "   </tr>"
           @cell_start = "    <td>"
-          @cell_mid   = "</td>\n    <td>"
-          @cell_end   = "</td>\n"
+          @cell_mid   = "</td>" +
+                        "<td>"
+          @cell_end   = "</td>"
           
         else 'xml'
           
-          @doc_start = '<?xml version="1.0" encoding="UTF-8"?>' +
-                       '<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/po.xsd" xmlns="http://tempuri.org/po.xsd" elementFormDefault="qualified">' +
-                        
-                        '<table>'
-          @doc_end    = '</table>' +
-                        '</xs:schema>'
-          @row_start  = '   <tr>'
-          @row_end    = '   </tr>'
-          @cell_start = '     <td>'
-          @cell_mid   = '     </td>' +
-                        '<td>'
-          @cell_end   = '</td>'
+          @doc_start = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+                       "<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" targetNamespace=\"http://tempuri.org/po.xsd\" xmlns=\"http://tempuri.org/po.xsd\" elementFormDefault=\"qualified\">" +
+                        "<table>"
+          @doc_end    = "</table>" +
+                        "</xs:schema>"
+          @row_start  = "   <tr>"
+          @row_end    = "   </tr>"
+          @cell_start = "     <td>"
+          @cell_mid   = "     </td>" +
+                        "<td>"
+          @cell_end   = "</td>"
       end    
     end #set_up
         
