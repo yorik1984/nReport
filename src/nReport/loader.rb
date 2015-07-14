@@ -4,6 +4,7 @@
 # URL: https://github.com/INTITY/nReport
 
 require 'sketchup.rb'
+require 'nReport/filter.rb'
 require 'nReport/attrreporter.rb'
 
 module Sketchup::Extensions::NReport
@@ -11,7 +12,7 @@ module Sketchup::Extensions::NReport
 	PUBLIC_LICENSE = 'https://github.com/INTITY/nReport/blob/master/LICENSE'
 	entities_list = Sketchup.active_model.entities
 	attr_reporter = AttrReporter.new
-
+	filter = FilterAtt.new #
 	# Check our extension license and add our menu item only if we are licensed.
 	ext_id = 'D8E576C8-1A12-432C-87F0-F7435A5A1457'
 	ext_lic = Sketchup::Licensing.get_extension_license(ext_id)
@@ -25,6 +26,7 @@ module Sketchup::Extensions::NReport
 		plugins_menu.add_item('Generate Report as XML') { 
 			attr_reporter.generate_attributes_report('report.xml', entities_list) }
 		plugins_menu.add_separator
+		plugins_menu.add_item('Attribute Filter') { filter.attributes }
 		plugins_menu.add_item('Licensed Extension') { UI.openURL( PUBLIC_LICENSE ) }
 		
 		# Context Menu Item
