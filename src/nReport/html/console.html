@@ -7,20 +7,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
 
     <link href="../css/console.css" rel="stylesheet" type="text/css" />
+    <script src="../js/consile.js" type="text/javascript" language="JavaScript"></script>
 </head>
 
-<body onload="console.initialize()">
+<body>
     <div id="background">
         <div id="header">
-            <div id="title">REPORT FILTER</div>
+            <div id="title">
+                <span>REPORT FILTER</span>
+            </div>
         </div>
         <div id="content">
             <div id="input">
-                <textarea id="filters" rows="10" title="Filters Attributes"></textarea>
+                <div id="field">CUSTOM</div>
+                <textarea id="custom" rows="15" title="Filter"></textarea>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />Enable custom</label>
+                </div>
+            </div>
+            <div id="input">
+                <div id="field">HEADER</div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />Entity</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />Definition Name</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />Entity Description</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />Layer</label>
+                </div>
+                <div id="field">COMPONENT INFO</div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />Name</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />Summary</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />Description</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />Item Code</label>
+                </div>
+                <div id="field">POSITION</div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />X</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />Y</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />Z</label>
+                </div>
+            </div>
+            <div id="input">
+                <div id="field">SIZE</div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />LenX</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />LenY</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />LenZ</label>
+                </div>
+                <div id="field">ROTATION</div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />RotX</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />RotY</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />RotZ</label>
+                </div>
+                <div id="field">BEHAVIORS</div>
+                <div>
+                    <label><input type="checkbox" class="checkbox" id="" />Material</label>
+                </div>
             </div>
         </div>
         <div id="footer">
-            <div id="reload" title="Save Filter"><a class="button">Save</a></div>
+            <div id="reload" title="Save Configuration"><a class="button">Save</a></div>
         </div>
     </div>
 </body>

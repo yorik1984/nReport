@@ -4,20 +4,12 @@
 # URL: https://github.com/INTITY/nReport
 
 require 'sketchup.rb'
-require 'nReport/console.rb'
+
 
 
 module Sketchup::Extensions::NReport
 	
-	class FilterAtt
+	class AttReport
 		
-		def attributes
-			
-			console = Console.new
-			console.initialize
-			
-		end
 	end
 end
-
-$empty = ["lenx", "lenz"]

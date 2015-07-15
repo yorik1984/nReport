@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-5"?>
+<attributes>
+	<attribute Id="name">
+		<value>1</value>
+	</attribute>
+	<attribute Id="summary">
+		<value>1</value>
+	</attribute>
+	<attribute Id="description">
+		<value>1</value>
+	</attribute>
+	<attribute Id="itemcode">
+		<value>1</value>
+	</attribute>
+	<attribute Id="lenx">
+		<value>1</value>
+	</attribute>
+	<attribute Id="leny">
+		<value>1</value>
+	</attribute>
+	<attribute Id="lenz">
+		<value>1</value>
+	</attribute>
+	<attribute Id="x">
+		<value>1</value>
+	</attribute>
+	<attribute Id="y">
+		<value>1</value>
+	</attribute>
+	<attribute Id="z">
+		<value>1</value>
+	</attribute>
+	<attribute Id="rotx">
+		<value>1</value>
+	</attribute>
+	<attribute Id="roty">
+		<value>1</value>
+	</attribute>
+	<attribute Id="rotz">
+		<value>1</value>
+	</attribute>
+  <attribute Id="material">
+    <value>1</value>
+  </attribute>
+	<attribute Id="custom">
+		<value>1</value>
+	</attribute>
+</attributes>
